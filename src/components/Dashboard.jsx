@@ -1,11 +1,15 @@
 import React, {useState, useEffect} from 'react'
+import './dashboard.css'
 import Card from './Card.jsx'
+import Report from './Report';
+import RecentSales from './RecentSales';
+import TopSelling from './TopSelling';
 
 function Dashboard() {
     const[cards,setCards] = useState([]);
 
     const fetchData = () => {
-        fetch('http://localhost:3000/cards')
+        fetch('http://localhost:4000/cards')
             .then(res => res.json())
             .then(data => {
                 setCards(data);
@@ -27,6 +31,15 @@ function Dashboard() {
                         cards.length > 0 &&
                         cards.map(card => <Card key={card._id} card={card} /> )
                     }
+                    <div className="col-12">
+                        <Report/>
+                    </div>
+                    <div className="col-12">
+                        <RecentSales/>
+                    </div>
+                    <div className="col-12">
+                        <TopSelling/>
+                    </div>
                 </div>
             </div>
             <div className="col-lg-4"></div>

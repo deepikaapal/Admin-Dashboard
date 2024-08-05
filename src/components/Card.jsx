@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import './card.css'
 import CardFilter from './CardFilter';
 
-function Card({card}) {
+function Card({ card }) {
   const [filter, setFilter] = useState('Today');
   const handleFilterChange = filter => {
     setFilter(filter);
@@ -24,13 +24,13 @@ function Card({card}) {
             <div className="ps-3">
               <h6>
                 {card.name === 'Revenue'
-                ? '₹' + card.amount.toLocalString('en-USF')
-                : card.amount.toLocalString('en-IN')}
+                ? '₹' + card.amount.toLocaleString('en-IN')
+                : card.amount.toLocaleString('en-IN')}
               </h6>
               <span 
               className={`${
                 card.percentage > 0 ? 'text-success' : 'text-danger'
-              } small pt-1 fw-bold`}
+              } small pt-1 fw-bold1`}
               >
                {card.percentage > 0
                ? card.percentage *100
@@ -49,4 +49,3 @@ function Card({card}) {
 }
 
 export default Card;
-

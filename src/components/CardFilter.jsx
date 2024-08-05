@@ -11,7 +11,10 @@ function CardFilter({filterChange}) {
                 <h6>Filter</h6>
             </li>
             <li>
-                <a className="dropdown-item" onClick={() => filterChange('Today')}>
+                <a 
+                className="dropdown-item" 
+                onClick={() => filterChange('Today')}
+                >
                     Today
                 </a>
             </li>
@@ -26,7 +29,8 @@ function CardFilter({filterChange}) {
             <li>
                 <a 
                 className="dropdown-item" 
-                onClick={() => filterChange('This Year')}>
+                onClick={() => filterChange('This Year')}
+                >
                     This Year
                 </a>
             </li>
@@ -35,4 +39,4 @@ function CardFilter({filterChange}) {
   )
 }
 
-export default CardFilter
+export default CardFilter;

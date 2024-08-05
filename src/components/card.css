@@ -1,5 +1,4 @@
-/* Info cards */
-.dashboard .info-card {
+.dashboard .info-card{
     padding-bottom: 10px;
 }
 
@@ -11,7 +10,7 @@
     padding: 0;
 }
 
-.dashboard .card-icon {
+.dashboard .card-icon{
     font-size: 32px;
     line-height: 0;
     width: 64px;
@@ -20,17 +19,17 @@
     flex-grow: 0;
 }
 
-.dashboard .sales-card .card-icon {
-    color: #4154f1;
+.dashboard .sales-card .card-icon{
     background: #f6f6fe;
+    color: #4154f1;
 }
 
-.dashboard .revenue-card .card-icon {
-    color: #2eca6a;
+.dashboard .revenue-card .card-icon{
     background: #e0f8e9;
+    color: #2eca6a;
 }
 
 .dashboard .customers-card .card-icon{
-    color: #ff771d;
     background: #ffecdf;
+    color: #ff881d;
 }
