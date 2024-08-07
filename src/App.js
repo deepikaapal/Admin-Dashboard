@@ -1,4 +1,7 @@
 ///* in this project we are going to use a json serverto create a mock apiendpoint to serve this data on the backend */
+// importing antd for custom date range
+// import 'antd/dist/antd.css';
+
 
 //import icons
 import 'bootstrap-icons/font/bootstrap-icons.css';
@@ -13,6 +16,7 @@ import Header from './components/Header';
 import SideBar from './components/SideBar';
 import Main from './components/Main';
 import BackToTop from './components/BackToTop';
+
 
 function App() {
   return  (

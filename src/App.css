@@ -144,6 +144,7 @@ Override some default bootstarp styling
   border: none;
   border-radius: 5px;
   box-shadow: 0px 0 30px rgba(1,41,112,0.1);
+  display: block;
 }
 
 .card-header,
@@ -169,7 +170,7 @@ Override some default bootstarp styling
   font-weight: 400;
 }
 
-.car-body{
+.card-body{
   padding: 1 20px 20px 20px;
 }
 

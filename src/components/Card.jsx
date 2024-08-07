@@ -4,8 +4,16 @@ import CardFilter from './CardFilter';
 
 function Card({ card }) {
   const [filter, setFilter] = useState('Today');
-  const handleFilterChange = filter => {
+  const [customRange, setCustomRange] = useState('');
+  
+  const handleFilterChange = (filter, dateRange = []) => {
     setFilter(filter);
+
+    if (filter === 'Custom Range' && dateRange.length > 0) {
+      setCustomRange(dateRange.join(' - '));
+    } else {
+      setCustomRange('');
+    }
   };
   
   return (
@@ -16,6 +24,8 @@ function Card({ card }) {
           <h5 className="card-title">
             {card.name} <span> | {filter}</span>
           </h5>
+
+          {customRange && <p>{customRange}</p>}
 
           <div className="d-flex align-items-center"> 
             <div className="card-icon rounded-circle d-flex align-items-center justify-content-center">
