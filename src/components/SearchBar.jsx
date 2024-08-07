@@ -4,11 +4,13 @@ import './searchBar.css'
 function SearchBar() {
   return (
     <div className="search-bar">
-        <form className="search-form d-flex align-items-center"  
+        <form 
+        className="search-form d-flex align-items-center"  
         method="POST"
         action="#"
         >
-            <input type="text"
+            <input 
+            type="text"
             name="query"
             placeholder="Search"
             title="Enter search keyword"
@@ -18,7 +20,7 @@ function SearchBar() {
             </button>
         </form>
     </div>
-  )
+  );
 }
 
 export default SearchBar

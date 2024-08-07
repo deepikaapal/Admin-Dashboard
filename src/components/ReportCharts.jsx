@@ -6,7 +6,7 @@ function ReportCharts() {
         series: [
             {
                 name: 'Sales',
-                data: [31,40,28,51,82, 56],
+                data: [31,40,28,51,82,56,45],
             },
             {
                 name: 'Revenue',

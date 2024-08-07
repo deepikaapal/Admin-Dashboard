@@ -66,35 +66,35 @@
     {
       "_id": 1,
       "preview": "../assets/items/product-1.jpg",
-      "name": "Ut inventore ipsa voluptas nulla",
+      "name": "LISS4",
       "price": 64,
       "sold": 124
     },
     {
       "_id": 2,
       "preview": "../assets/items/product-2.jpg",
-      "name": "Exercitationem similique doloremque",
+      "name": "LISS4",
       "price": 46,
       "sold": 98
     },
     {
       "_id": 3,
       "preview": "../assets/items/product-3.jpg",
-      "name": "Doloribus nisi exercitationem",
+      "name": "LISS4",
       "price": 59,
       "sold": 74
     },
     {
       "_id": 4,
       "preview": "../assets/items/product-4.jpg",
-      "name": "Officiis quaerat sint rerum error",
+      "name": "LISS4",
       "price": 32,
       "sold": 63
     },
     {
       "_id": 5,
       "preview": "../assets/items/product-5.jpg",
-      "name": "Sit unde debitis delectus repellendus",
+      "name": "LISS4",
       "price": 79,
       "sold": 41
     }
@@ -103,40 +103,40 @@
     {
       "_id": 1,
       "number": "#2457",
-      "customer": "Brandon Jacob",
-      "product": "At praesentium minu",
+      "customer": " Deepika",
+      "product": "LISS4",
       "price": 64,
       "status": "Approved"
     },
     {
       "_id": 2,
       "number": "#2147",
-      "customer": "Bridie Kessler",
-      "product": "Blanditiis dolor omnis similique",
+      "customer": " Deepika",
+      "product": "LISS4",
       "price": 47,
       "status": "Pending"
     },
     {
       "_id": 3,
       "number": "#2049",
-      "customer": "Ashleigh Langosh",
-      "product": "At recusandae consectetur",
+      "customer": " Deepika",
+      "product": "LISS4",
       "price": 147,
       "status": "Approved"
     },
     {
       "_id": 4,
       "number": "#2644",
-      "customer": "Angus Grady",
-      "product": "Ut voluptatem id earum et",
-      "price": 67,
+      "customer": "Deepika",
+      "product": "LISS4",
+      "price": 72,
       "status": "Rejected"
     },
     {
       "_id": 5,
       "number": "#3592",
-      "customer": "Raheem Lehner",
-      "product": "Sunt similique distinctio",
+      "customer": "Deepika",
+      "product": "LISS4",
       "price": 135,
       "status": "Approved"
     }
@@ -146,42 +146,42 @@
       "_id": 1,
       "time": "32 min",
       "color": "text-success",
-      "content": "Quia quae rerum explicabo officiis beatae",
-      "highlight": "explicabo officiis"
+      "content": "",
+      "highlight": "Order Accepted"
     },
     {
       "_id": 2,
       "time": "56 min",
       "color": "text-danger",
-      "content": "Voluptatem blanditiis blanditiis eveniet",
+      "content": "Order Rejected",
       "highlight": ""
     },
     {
       "_id": 3,
       "time": "2 hrs",
       "color": "text-primary",
-      "content": "Voluptates corrupti molestias voluptatem",
-      "highlight": ""
+      "content": "",
+      "highlight": "Order in Process"
     },
     {
       "_id": 4,
       "time": "1 day",
       "color": "text-info",
-      "content": "Tempore autem saepe occaecati voluptatem tempore",
-      "highlight": "occaecati voluptatem"
+      "content": "Order dispatched",
+      "highlight": ""
     },
     {
       "_id": 5,
       "time": "2 days",
       "color": "text-warning",
-      "content": "Est sit eum reiciendis exercitationem",
+      "content": "Order Pending",
       "highlight": ""
     },
     {
       "_id": 6,
       "time": "4 weeks",
       "color": "text-muted",
-      "content": "Dicta dolorem harum nulla eius. Ut quidem quidem sit quas",
+      "content": "No recent updates",
       "highlight": ""
     }
   ]

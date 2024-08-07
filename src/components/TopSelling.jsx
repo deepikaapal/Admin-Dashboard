@@ -27,23 +27,30 @@ function TopSelling() {
     <div className="card top-selling overflow-auto">
       <CardFilter filterChange={handleFilterChange}/>
 
-      <table className="card-body pb-0">
-        <thead className="table-light">
-          <tr>
-            <th scope="col">Preview</th>
-            <th scope="col">Product</th>
-            <th scope="col">Price</th>
-            <th scope="col">Sold</th>
-            <th scope="col">Revenue</th>
-          </tr>
-        </thead>
-        <tbody>
-          {items &&
-          items.length >0 &&
-          items.map(item => <TopSellingItem key={item.id} item={item}/> )}
-        </tbody>
-      </table>
+      <div className="card-body pb-0">
+        <h5 className="card-title">
+          Top Selling <span> | {filter}</span>
+        </h5>
+
+        <table className="table table-borderless">
+          <thead className="table-light">
+            <tr>
+              <th scope="col">Preview</th>
+              <th scope="col">Product</th>
+              <th scope="col">Price</th>
+              <th scope="col">Sold</th>
+              <th scope="col">Revenue</th>
+            </tr>
+          </thead>
+          <tbody>
+            {items &&
+              items.length > 0 &&
+              items.map(item => <TopSellingItem key={item._id} item={item} /> )}
+          </tbody>
+        </table>
+      </div>
     </div>
+
   );
 }
 

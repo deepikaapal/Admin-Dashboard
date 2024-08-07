@@ -8,19 +8,21 @@ import 'remixicon/fonts/remixicon.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.min.js';
 
-import logo from './logo.svg';
 import './App.css';
 import Header from './components/Header';
 import SideBar from './components/SideBar';
-// import navList from './data/navItem';
 import Main from './components/Main';
+import BackToTop from './components/BackToTop';
 
 function App() {
-  return  (<>
+  return  (
+  <>
   <Header />
   <SideBar />
   <Main/>
-  </>);
+  <BackToTop/>
+  </>
+  )
 }
 
 export default App;

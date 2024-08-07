@@ -34,6 +34,14 @@ function CardFilter({filterChange}) {
                     This Year
                 </a>
             </li>
+            <li>
+                <a 
+                className="dropdown-item" 
+                onClick={() => filterChange('Custom Range')}
+                >
+                    Custom Range
+                </a>
+            </li>
         </ul>
     </div>
   )

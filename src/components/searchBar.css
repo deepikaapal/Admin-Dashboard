@@ -18,12 +18,13 @@
         opacity: 0;
     }
 
-    .header .search-bar-show {
-        top: 60px;
-        visibility: visible;
-        opacity: 1;
-    
-    }
+}
+
+.header .search-bar-show {
+    top: 60px;
+    visibility: visible;
+    opacity: 1;
+
 }
 
 .header .search-form {

@@ -49,11 +49,11 @@ function NavAvatar() {
             </li>
 
             <li>
-                <a 
-                className="dropdown-item d-flex align-items-center"
-                href="pages-faq.html"
+            <a 
+                    className='dropdown-item d-flex align-items-center'
+                    href="pages-faq.html"
                 >
-                    <i className="bi bi-questions-circle"></i>
+                    <i className='bi bi-question-circle'></i>
                     <span>Need Help?</span>
                 </a>
             </li>
@@ -73,3 +73,4 @@ function NavAvatar() {
 }
 
 export default NavAvatar;
+
