@@ -1,24 +1,20 @@
 import React, {useEffect} from 'react'
-import * as echarts from 'echarts';
-
+import * as echarts from 'echarts'
 
 function WebTrafficChart() {
     useEffect(() => {
         echarts.init(document.querySelector('#trafficChart')).setOption({
             tooltip: {
-                trigger: 'item',
+                trigger:'item',
             },
-            legend: {
-                top: '2%',
-                fontSize: '14px',
+            legend:{
+                top: '5%',
                 left: 'center',
             },
             series: [
                 {
                     name: 'Access From',
                     type: 'pie',
-                    top: '9%',
-                    left: '3%',
                     radius: ['40%', '70%'],
                     avoidLabelOverlap: false,
                     label: {
@@ -38,36 +34,37 @@ function WebTrafficChart() {
                     data: [
                         {
                             value: 1048,
-                            name: 'Search Engine',
+                            name: 'Search Engine'
                         },
                         {
                             value: 735,
-                            name: 'Direct',
+                            name: 'Direct'
                         },
                         {
-                            valye: 580,
-                            name: 'Email',
+                            value: 580,
+                            name: 'Email'
                         },
                         {
                             value: 484,
-                            name: 'Union Ads',
+                            name: 'Ads'
                         },
                         {
                             value: 300,
-                            name:'Video Ads',
+                            name: 'Video-Ads'
                         },
                     ],
                 },
             ],
-        });
-    }, []);
+        })
+    }, [])
   return (
     <div
-        id="trafficChart"
-        style={{ minHeight: '430px' }}
-        className="echart"
+        id='trafficChart'
+        style={{minHeight: '440px'}}
+        className='echart'
     ></div>
-  );
+  )
 }
+
 
 export default WebTrafficChart

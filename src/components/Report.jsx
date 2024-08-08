@@ -10,10 +10,10 @@ function Report() {
   return (
     <div>
         <div className="card">
-            <CardFilter filterChange={handleFilterChange}/>
+            {/* <CardFilter filterChange={handleFilterChange}/> */}
             <div className="card-body">
                 <h5 className="card-title">
-                    Reports <span>/{filter}</span>
+                    Reports 
                 </h5>
                 <ReportCharts/>
             </div>

@@ -1,23 +1,24 @@
 import React from 'react'
 
 function TopSellingItem({item}) {
+    // console.log(item);
   return (
     <tr>
-        <th scope="row">
+        <th scope='row'>
             <a href="#">
-                <img src={item.preview} alt="" />
+                <img src={item.preview} alt="NA" />
             </a>
         </th>
         <td>
-          <a href="#" className="text-primary fw-bold">
-            {item.name}
-          </a>
+            <a href="#" className='text-primary fw-bold'>
+                {item.name}
+            </a>
         </td>
-        <td>${item.price.toFixed(2)}</td>
-        <td className="fw-bold">{item.sold}</td>
-        <td>${(item.price * item.sold).toLocaleString('en-IN')}</td>
+        <td>₹{item.price.toFixed(2)}</td>
+        <td className="fw-bold"> {item.sold} </td>
+        <td>₹{(item.price * item.sold).toLocaleString('en-IN')}</td>
     </tr>
-  );
+  )
 }
 
 export default TopSellingItem

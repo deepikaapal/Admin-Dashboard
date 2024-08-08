@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, {useState, useEffect} from 'react'
 import './recentSales.css'
 import CardFilter from './CardFilter';
 import RecentSalesTable from './RecentSalesTable';
@@ -8,16 +8,16 @@ function RecentSales() {
     const [filter, setFilter] = useState('Today');
     const handleFilterChange = filter => {
         setFilter(filter);
-    };
+    }
 
     const fetchData = () => {
         fetch('http://localhost:4000/recentsales')
-        .then(res => res.json())
-        .then(data => {
-            setItems(data);
-        })
-        .catch(e => console.log(e.message));
-    };
+            .then(res => res.json())
+            .then(data => {
+                setItems(data);
+            })
+            .catch(e=>console.log(e.message));
+    }
 
     useEffect(() => {
         fetchData();
@@ -25,16 +25,16 @@ function RecentSales() {
 
   return (
     <div className="card recent-sales overflow-auto">
-        <CardFilter filterChange={handleFilterChange}/>
+        {/* <CardFilter filterChange={handleFilterChange} /> */}
 
         <div className="card-body">
             <h5 className="card-title">
-                Recent Sales <span>|{filter}</span>
+                Recent Sales
             </h5>
-            <RecentSalesTable items={items} />
+            <RecentSalesTable items={items}/>
         </div>
     </div>
-  );
+  )
 }
 
 export default RecentSales

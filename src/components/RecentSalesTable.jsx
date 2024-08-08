@@ -6,19 +6,18 @@ function RecentSalesTable({items}) {
         switch (status) {
             case 'Approved':
                 return 'success';
-                break;
             case 'Pending':
                 return 'warning';
-                break;      
             case 'Rejected':
                 return 'danger';
                 break;
-            default: return 'success';            
+            default:
+                return 'success';
         }
-    };
+    }
 
   return (
-    <table className= "table table-borderless datatable">
+    <table className='table table-borderless datatable'>
         <thead className="table-light">
             <tr>
                 <th scope='col'>#</th>
@@ -29,28 +28,28 @@ function RecentSalesTable({items}) {
             </tr>
         </thead>
         <tbody>
-            {items &&
-                items.length >0 &&
+            {
+                items &&
+                items.length > 0 &&
                 items.map(item => (
                     <tr key={item._id}>
                         <th scope='row'>
-                        <a href="#">{item.number}</a>
+                            <a href="#">{item.number}</a>
                         </th>
                         <td>{item.customer}</td>
                         <td>
-                            <a href="#" className="text-primary">
+                            <a href="#" className='text-primary'>
                                 {item.product}
                             </a>
                         </td>
-                        <td>${item.price.toFixed(2)}</td>
+                        <td>₹{item.price.toFixed(2)}</td>
                         <td>
-                            <span className= {`badge bg-${handleStatus(item.status)}`}>
+                            <span className={`badge bg-${handleStatus(item.status)}`}>
                                 {item.status}
                             </span>
                         </td>
                     </tr>
                 ))
-
             }
         </tbody>
     </table>
@@ -58,4 +57,3 @@ function RecentSalesTable({items}) {
 }
 
 export default RecentSalesTable
-

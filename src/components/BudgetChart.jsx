@@ -1,16 +1,14 @@
 import React, {useEffect} from 'react'
-import * as echarts from 'echarts';
+import * as echarts from 'echarts'
 
 function BudgetChart() {
     useEffect(() => {
         echarts.init(document.querySelector('#budgetChart')).setOption({
-            legend: {
-                data: ['Allocated Budget', 'Actual Spending'],
-                top: '4%'
+            legend:{
+                data:['Allocated Budget','Actual Spending'],
             },
-            radar: {
-                shape: 'circle',
-                top: '10%',
+            radar:{
+                shape:'circle',
                 indicator: [
                     {
                         name: 'Sales',
@@ -21,7 +19,7 @@ function BudgetChart() {
                         max: 16000
                     },
                     {
-                        name:'Information Technology',
+                        name: 'Information Techology',
                         max: 30000
                     },
                     {
@@ -29,7 +27,7 @@ function BudgetChart() {
                         max: 38000
                     },
                     {
-                        name: 'Developement',
+                        name: 'Development',
                         max: 52000
                     },
                     {
@@ -48,19 +46,19 @@ function BudgetChart() {
                             name: 'Allocated Budget'
                         },
                         {
-                            value: [5000,14000,28000,26000,42000,21000],
+                            value: [5000, 14000, 28000, 26800, 42000, 21000],
                             name: 'Actual Spending',
                         },
                     ],
                 },
             ],
-        });
-    }, []);
+        })
+    }, [])
   return (
-    <div 
-        id="budgetChart"
-        style={{ minHeight: '460px'}}
-        className="echart"
+    <div
+        id='budgetChart'
+        style={{minHeight: '440px'}}
+        className='echart'
     ></div>
   )
 }

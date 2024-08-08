@@ -1,23 +1,20 @@
-/* .logo {
-    line-height: 1;
+.logo {
+    line-height: 1;}
 
-}
-
-@media (min-width: 120px) {
+/* @media (max-width: 1200px) {
     .logo {
-        width: 230px;
-    }
+        width: 280px;
+    }    
 }
 
-.logp img {
+.logo img{
     max-height: 26px;
     margin-right: 6px;
 } */
 
-.logo span {
-    font-size: 23px;
+.logo span{
+    font-size: 22px;
     font-weight: 700;
     color: #012970;
     font-family: 'Nunito', sans-serif;
-
 }
