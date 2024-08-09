@@ -6,6 +6,7 @@ import moment from 'moment';
 function CardFilter({ filterChange }) {
     const [showCustomRange, setShowCustomRange] = useState(false);
     const [startDate, setStartDate] = useState(null);
+    console.log(startDate)
     const [endDate, setEndDate] = useState(null);
 
   useEffect(() => {
@@ -42,7 +43,6 @@ function CardFilter({ filterChange }) {
 
   const handleDate = (value) => {
     const date = new Date();
-
     // Reset custom range fields when another filter option is selected
     setShowCustomRange(false);
 

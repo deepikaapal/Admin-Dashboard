@@ -12,47 +12,38 @@ import axios from 'axios'
 
 function Dashboard() {
     const [cards, setCards] = useState([])
+    const [filteredOrderDetails, setfilterOrderDetails] = useState([])
     const [orderDetails, setOrderDetails] = useState([])
     const [approvedcount, setApprovedcount] = useState(0);
     const [totalAmount, setTotalAmount] = useState(0);   
 
     const orderData = async() => {
         try{
-        // fetch('http://localhost:5000/orderDetails')
-        //     .then(res => res.json())
-        //     .then(data => {
-        //         setOrderDetails(data);
-
-        //     })
-        //     .catch(e=>console.log(e.message));
         const res = await axios.get('http://localhost:5000/orderdetails');
         const data = res.data;
         setOrderDetails(data);
-
-        // 
-        
         let count = 0; // Declare and initialize count outside the iteration
         let totalAmount = 0; // Declare and initialize totalAmount to sum total_amount
 
         data.forEach((item) => {
-            
-            
             if (item.status === 'approved') {
                 count++;
-                console.log(item.total_amt);
+                // console.log(item.total_amt);
             }
-            // Ensure total_amount is a number before adding it to totalAmount
-        const amount = (parseFloat(item.total_amt));
-            if (!isNaN(amount)) {
-                    totalAmount += amount;
-            }
+
+            
+            
+            const amount = (parseFloat(item.total_amt));
+                if (!isNaN(amount)) {
+                        totalAmount += amount;
+                }
         });
 
         setApprovedcount(count)
         
         // console.log('Approved count:', count); // Log the count to verify
-        console.log('Total Amount:', new Intl.NumberFormat('en-IN').format(totalAmount)); // Log the total amount to verify
-        // console.log('Total Amount:', Number(totalAmount).toFixed(2)); // Log the total amount to verify
+        // console.log('Total Amount:', new Intl.NumberFormat('en-IN').format(totalAmount)); 
+        // console.log('Total Amount:', Number(totalAmount).toFixed(2)); 
 
         setTotalAmount(totalAmount);
 
@@ -61,7 +52,6 @@ function Dashboard() {
         }
     }
 
-// console.log(count, "this is our deliverd count");
     const fetchData = () => {
         try{
             fetch('http://localhost:4000/cards')
@@ -80,6 +70,8 @@ function Dashboard() {
         orderData();
     }, []);
 
+    
+
     const handleFilterChange = (dates) => { 
         // Split the date string by " - " to separate the start and end dates
         const [startDate, endDate] = dates.split(" - ");
@@ -87,6 +79,7 @@ function Dashboard() {
         console.log('Start Date:', startDate);
         console.log('End Date:', endDate);
       };
+
   return (
     <section className="dashboard section">
         <div className="row">
