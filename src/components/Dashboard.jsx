@@ -1,132 +1,114 @@
-import React, { useState, useEffect } from 'react';
-import './dashboard.css';
-import Card from './Card';
-import Reports from './Reports';
-import RecentSales from './RecentSales';
+import React, { useState, useEffect } from 'react'
+import './dashboard.css'
+import Card from './Card'
+import Reports from './Reports'
+import RecentSales from './RecentSales'
 import TopSelling from './TopSelling';
 import RecentActivity from './RecentActivity';
 import BudgetReport from './BudgetReport';
 import WebTraffic from './WebTraffic';
 import CardFilter from './CardFilter';
-import moment from 'moment';
-import axios from 'axios';
+import axios from 'axios'
 
 function Dashboard() {
-    const [cards, setCards] = useState([]);
-    const [orderDetails, setOrderDetails] = useState([]);
-    const [approvedCount, setApprovedCount] = useState(0);
-    const [totalAmount, setTotalAmount] = useState(0);
-    const [filteredData, setFilteredData] = useState([]);
-    const [startDate, setStartDate] = useState(null);
-    const [endDate, setEndDate] = useState(null);
+    const [cards, setCards] = useState([])
+    // const [filteredOrderDetails, setfilterOrderDetails] = useState([])
+    const [orderDetails, setOrderDetails] = useState([])
+    const [approvedcount, setApprovedcount] = useState(0);
+    const [totalAmount, setTotalAmount] = useState(0);   
 
-    const orderData = async () => {
-        try {
-            const res = await axios.get('http://localhost:5000/orderDetails');
-            const data = res.data;
-            setOrderDetails(data);
-            filterData(data, startDate, endDate);
-        } catch (e) {
-            console.log(e.message);
-        }
-    };
+    const orderData = async() => {
+        try{
+            const res = await axios.get('http://localhost:5000/orderdetails');
+        const data = res.data;
+        setOrderDetails(data);
+        
+        let count = 0; // Declare and initialize count outside the iteration
+        let totalAmount = 0; // Declare and initialize totalAmount to sum total_amount
 
-    const fetchData = () => {
-        try {
-            fetch('http://localhost:4000/cards')
-                .then((res) => res.json())
-                .then((data) => {
-                    setCards(data);
-                })
-                .catch((e) => console.log(e.message));
-        } catch (e) {
-            console.log(e.message);
-        }
-    };
-
-    useEffect(() => {
-        fetchData();
-        orderData();
-    }, []);
-
-    useEffect(() => {
-        filterData(orderDetails, startDate, endDate);
-    }, [startDate, endDate, orderDetails]);
-
-    const filterData = (data, startDate, endDate) => {
-        let filtered = data;
-
-        if (startDate && endDate) {
-            const start = new Date(startDate);
-            const end = new Date(endDate);
-            filtered = data.filter((item) => {
-                const itemDate = new Date(item.date);
-                return itemDate >= start && itemDate <= end;
-            });
-        }
-
-        // Calculate approved count and total amount for the filtered data
-        let count = 0;
-        let totalAmount = 0;
-
-        filtered.forEach((item) => {
-            if (item.status === 'Approved') {
+        data.forEach((item) => {
+            if (item.status === 'approved') {
                 count++;
+                    // console.log(item.total_amt);
             }
-            const amount = parseFloat(item.total_amt);
-            if (!isNaN(amount)) {
-                totalAmount += amount;
-            }
+            const amount = (parseFloat(item.total_amt));
+                if (!isNaN(amount)) {
+                        totalAmount += amount;
+                }
         });
 
-        setFilteredData(filtered);
-        setApprovedCount(count);
+        setApprovedcount(count)
+
+        // console.log('Approved count:', count); // Log the count to verify
+         // console.log('Total Amount:', new Intl.NumberFormat('en-IN').format(totalAmount)); 
+        // console.log('Total Amount:', Number(totalAmount).toFixed(2)); 
+
         setTotalAmount(totalAmount);
-    };
 
-    const handleFilterChange = (dates) => {
-        const [startDate, endDate] = dates.split(' - ');
-        setStartDate(startDate);
-        setEndDate(endDate);
-    };
+    }catch(e){
+        console.log(e.message);
+    }
+}
 
-    return (
+const fetchData = () => {
+    try{
+        fetch('http://localhost:4000/cards')
+        .then(res => res.json())
+        .then(data => {
+            setCards(data);
+        })
+        .catch(e=>console.log(e.message));
+    }catch(e){
+        console.log(e.message);
+    }
+}
+useEffect(() => {
+    fetchData();
+    orderData();
+}, []);
+
+    const handleFilterChange = (dates) => { 
+        // Split the date string by " - " to separate the start and end dates
+        const [startDate, endDate] = dates.split(" - ");
+
+        console.log('Start Date:', startDate);
+        console.log('End Date:', endDate);
+      };
+
+      return (
         <section className="dashboard section">
             <div className="row">
                 <div className="">
-                    {startDate && endDate &&
-                        <h5>
-                           Custom Range: <span>{moment(startDate).startOf('day').format('Do MMMM YYYY')} - {moment(endDate).startOf('day').format('Do MMMM YYYY')}</span>
-                        </h5>
-                    }
-                </div>
-                <div className="">
-                    <CardFilter filterChange={handleFilterChange} />
+                    <CardFilter filterChange={handleFilterChange}/>
                 </div>
                 <div className="col-lg-8">
                     <div className="row">
-                        <Card name={"Sales"} totalsales={approvedCount} />
-                        <Card name={"Revenue"} totalsales={(new Intl.NumberFormat('en-IN').format(totalAmount.toFixed(2)))} />
-                        <Card name={"Customers"} totalsales={filteredData.length} />
+                        {/* {
+                            cards && cards.length > 0 && cards.map(card=> <Card key={card._id} card={card}/>)
+                        } */}
+                        < Card name={"Sales"} totalsales={approvedcount}/>
+                        < Card name={"Revenue"} totalsales={(new Intl.NumberFormat('en-IN').format(totalAmount.toFixed(2)))}/>
+                        < Card name={"Customers"} totalsales={(orderDetails.length)}/>
+                        
                         <div className="col-12">
-                            <Reports />
+                            <Reports/>
                         </div>
                         <div className="col-12">
-                            <RecentSales />
+                            <RecentSales/>
                         </div>
                         <div className="col-12">
-                            <TopSelling />
+                            <TopSelling/>
                         </div>
                     </div>
                 </div>
                 <div className="col-lg-4">
-                    <RecentActivity />
-                    <BudgetReport />
-                    <WebTraffic />
+                    <RecentActivity/>
+                    <BudgetReport/>
+                    <WebTraffic/>
                 </div>
             </div>
         </section>
-    );
-}
+      )
+    }
 
-export default Dashboard;
+    export default Dashboard
