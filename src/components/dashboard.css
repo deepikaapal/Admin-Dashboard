@@ -34,3 +34,15 @@
 .dashboard .filter .dropdown-item{
     padding: 8px 15px;
 }
+
+.dashboard .date-range-display {
+    font-size: 20px;
+    font-weight: 500;
+    color: #4154f1;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    display: inline-block;
+    padding: 5px 10px;
+    background-color: #f4f6fb;
+    border-radius: 5px;
+}

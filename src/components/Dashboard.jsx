@@ -1,25 +1,25 @@
-import React, { useState, useEffect } from 'react'
-import './dashboard.css'
-import Card from './Card'
-import Reports from './Reports'
-import RecentSales from './RecentSales'
+import React, { useState, useEffect } from 'react';
+import './dashboard.css';
+import Card from './Card';
+import Reports from './Reports';
+import RecentSales from './RecentSales';
 import TopSelling from './TopSelling';
 import RecentActivity from './RecentActivity';
 import BudgetReport from './BudgetReport';
 import WebTraffic from './WebTraffic';
 import CardFilter from './CardFilter';
-import axios from 'axios'
+import axios from 'axios';
 
 function Dashboard() {
-    const [cards, setCards] = useState([])
-    const [filteredDetails, setFilteredDetails] = useState([])
-    const [orderDetails, setOrderDetails] = useState([])
+    const [cards, setCards] = useState([]);
+    const [filteredDetails, setFilteredDetails] = useState([]);
+    const [orderDetails, setOrderDetails] = useState([]);
     const [approvedcount, setApprovedcount] = useState(0);
     const [totalAmount, setTotalAmount] = useState(0); 
-    // const [filterDates, setFilterDates] = useState('')  
+    const [selectedDateRange, setSelectedDateRange] = useState(''); // New state for date range
 
     const orderData = async() => {
-        try{
+        try {
             const res = await axios.get('http://localhost:5000/orderdetails');
             const data = res.data;
             setOrderDetails(data);
@@ -43,10 +43,10 @@ function Dashboard() {
         } catch(e) {
             console.log(e.message);
         }
-    }
+    };
 
     const fetchData = () => {
-        try{
+        try {
             fetch('http://localhost:4000/cards')
             .then(res => res.json())
             .then(data => {
@@ -56,7 +56,7 @@ function Dashboard() {
         } catch(e) {
             console.log(e.message);
         }
-    }
+    };
 
     useEffect(() => {
         fetchData();
@@ -65,6 +65,8 @@ function Dashboard() {
 
     const handleFilterChange = (dates) => { 
         const [startDate, endDate] = dates.split(" - ");
+        setSelectedDateRange(dates); // Update the selected date range state
+
         const filteredOrders = orderDetails.filter(order => {
             const orderDate = new Date(order.date);
             return orderDate >= new Date(startDate) && orderDate <= new Date(endDate);
@@ -91,6 +93,12 @@ function Dashboard() {
     return (
         <section className="dashboard section">
             <div className="row">
+                <div className="col-12">
+                    
+                    {selectedDateRange && (
+                        <p className="date-range-display">{selectedDateRange}</p>
+                    )}
+                </div>
                 <div className="">
                     <CardFilter filterChange={handleFilterChange}/>
                 </div>
@@ -121,4 +129,4 @@ function Dashboard() {
     )
 }
 
-export default Dashboard
+export default Dashboard;
