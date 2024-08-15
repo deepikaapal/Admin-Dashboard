@@ -9,6 +9,7 @@ import BudgetReport from './BudgetReport';
 import WebTraffic from './WebTraffic';
 import CardFilter from './CardFilter';
 import axios from 'axios';
+import DateTimeDisplay from './DateTimeDisplay';
 
 function Dashboard() {
     const [cards, setCards] = useState([]);
@@ -94,13 +95,13 @@ function Dashboard() {
         <section className="dashboard section">
             <div className="row">
                 <div className="col-12">
-                    
                     {selectedDateRange && (
                         <p className="date-range-display">{selectedDateRange}</p>
                     )}
                 </div>
                 <div className="">
                     <CardFilter filterChange={handleFilterChange}/>
+                    <DateTimeDisplay/>
                 </div>
                 <div className="col-lg-8">
                     <div className="row">

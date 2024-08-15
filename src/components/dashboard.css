@@ -37,12 +37,28 @@
 
 .dashboard .date-range-display {
     font-size: 20px;
-    font-weight: 500;
-    color: #4154f1;
+    font-weight: 700;
+    color: grey;
     margin-top: 5px;
     margin-bottom: 15px;
     display: inline-block;
     padding: 5px 10px;
     background-color: #f4f6fb;
     border-radius: 5px;
+}
+
+.dashboard .date-time-display {
+    display: flex;
+    align-items: flex-end;
+    font-size: 14px;
+    color: #4154f1;
+}
+
+.dashboard .date-time-display .date {
+    font-weight: 400;
+    margin-right: 10px; /* Add some space between date and time */
+}
+
+.dashboard .date-time-display .time {
+    font-weight: 400;
 }
