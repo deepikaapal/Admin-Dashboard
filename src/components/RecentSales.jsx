@@ -2,33 +2,39 @@ import React, { useState, useEffect } from 'react';
 import './recentSales.css';
 import RecentSalesTable from './RecentSalesTable';
 
-function RecentSales({ selectedDateRange }) { // Receive the date range as a prop
+function RecentSales({ selectedDateRange }) {
     const [items, setItems] = useState([]);
-    
+    const [filteredItems, setFilteredItems] = useState([]);
+
     const fetchData = () => {
         fetch('http://localhost:4000/recentsales')
             .then(res => res.json())
             .then(data => {
                 setItems(data);
+                setFilteredItems(data); // Initialize with all data
             })
             .catch(e => console.log(e.message));
-    }
+    };
 
     useEffect(() => {
         fetchData();
     }, []);
 
-    const filterItems = () => {
+    useEffect(() => {
         if (!selectedDateRange) {
-            return items;
+            setFilteredItems(items); // No date range, show all items
+            return;
         }
 
         const [startDate, endDate] = selectedDateRange.split(" - ");
-        return items.filter(item => {
+
+        const filtered = items.filter(item => {
             const itemDate = new Date(item.date);
             return itemDate >= new Date(startDate) && itemDate <= new Date(endDate);
         });
-    };
+
+        setFilteredItems(filtered);
+    }, [selectedDateRange, items]); // Update whenever selectedDateRange or items change
 
     return (
         <div className="card recent-sales overflow-auto">
@@ -36,7 +42,7 @@ function RecentSales({ selectedDateRange }) { // Receive the date range as a pro
                 <h5 className="card-title">
                     Recent Sales
                 </h5>
-                <RecentSalesTable items={filterItems()} />
+                <RecentSalesTable items={filteredItems} />
             </div>
         </div>
     );
