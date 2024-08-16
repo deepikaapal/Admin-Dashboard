@@ -1,51 +1,40 @@
-import React, { useState, useEffect } from 'react';
-import './recentSales.css';
+import React, {useState, useEffect} from 'react'
+import './recentSales.css'
+import CardFilter from './CardFilter';
 import RecentSalesTable from './RecentSalesTable';
 
-function RecentSales({ selectedDateRange }) {
+function RecentSales() {
     const [items, setItems] = useState([]);
-    const [filteredItems, setFilteredItems] = useState([]);
+    const [filter, setFilter] = useState('Today');
+    const handleFilterChange = filter => {
+        setFilter(filter);
+    }
 
     const fetchData = () => {
         fetch('http://localhost:4000/recentsales')
             .then(res => res.json())
             .then(data => {
                 setItems(data);
-                setFilteredItems(data); // Initialize with all data
             })
-            .catch(e => console.log(e.message));
-    };
+            .catch(e=>console.log(e.message));
+    }
 
     useEffect(() => {
         fetchData();
     }, []);
 
-    useEffect(() => {
-        if (!selectedDateRange) {
-            setFilteredItems(items); // No date range, show all items
-            return;
-        }
+  return (
+    <div className="card recent-sales overflow-auto">
+        {/* <CardFilter filterChange={handleFilterChange} /> */}
 
-        const [startDate, endDate] = selectedDateRange.split(" - ");
-
-        const filtered = items.filter(item => {
-            const itemDate = new Date(item.date);
-            return itemDate >= new Date(startDate) && itemDate <= new Date(endDate);
-        });
-
-        setFilteredItems(filtered);
-    }, [selectedDateRange, items]); // Update whenever selectedDateRange or items change
-
-    return (
-        <div className="card recent-sales overflow-auto">
-            <div className="card-body">
-                <h5 className="card-title">
-                    Recent Sales
-                </h5>
-                <RecentSalesTable items={filteredItems} />
-            </div>
+        <div className="card-body">
+            <h5 className="card-title">
+                Recent Sales
+            </h5>
+            <RecentSalesTable items={items}/>
         </div>
-    );
+    </div>
+  )
 }
 
-export default RecentSales;
+export default RecentSales
