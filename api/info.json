@@ -103,47 +103,92 @@
     {
       "_id": 1,
       "number": "#2457",
-      "customer": "Deepika",
+      "customer": "Tata Motors",
       "product": "LISS4",
       "price": 64,
       "status": "Approved",
-      "date": "2024-08-18"
+      "date": "2023-05-18"
     },
     {
       "_id": 2,
       "number": "#2147",
-      "customer": "Deepika",
+      "customer": "Infosys",
       "product": "LISS4",
       "price": 47,
       "status": "Pending",
-      "date": "2024-08-17"
+      "date": "2023-07-21"
     },
     {
       "_id": 3,
       "number": "#2049",
-      "customer": "Deepika",
+      "customer": "Wipro",
       "product": "LISS4",
       "price": 147,
       "status": "Approved",
-      "date": "2024-08-16"
+      "date": "2022-11-30"
     },
     {
       "_id": 4,
       "number": "#2644",
-      "customer": "Deepika",
+      "customer": "HCL Technologies",
       "product": "LISS4",
       "price": 72,
       "status": "Rejected",
-      "date": "2024-08-15"
+      "date": "2024-01-15"
     },
     {
       "_id": 5,
       "number": "#3592",
-      "customer": "Deepika",
+      "customer": "Mahindra & Mahindra",
       "product": "LISS4",
       "price": 135,
       "status": "Approved",
-      "date": "2024-08-14"
+      "date": "2023-03-14"
+    },
+    {
+      "_id": 6,
+      "number": "#3600",
+      "customer": "ICICI Bank",
+      "product": "LISS4",
+      "price": 80,
+      "status": "Approved",
+      "date": "2023-09-10"
+    },
+    {
+      "_id": 7,
+      "number": "#3601",
+      "customer": "State Bank of India",
+      "product": "LISS4",
+      "price": 95,
+      "status": "Pending",
+      "date": "2022-08-22"
+    },
+    {
+      "_id": 8,
+      "number": "#3602",
+      "customer": "Bharti Airtel",
+      "product": "LISS4",
+      "price": 120,
+      "status": "Approved",
+      "date": "2024-04-05"
+    },
+    {
+      "_id": 9,
+      "number": "#3603",
+      "customer": "Reliance Industries",
+      "product": "LISS4",
+      "price": 110,
+      "status": "Rejected",
+      "date": "2023-11-01"
+    },
+    {
+      "_id": 10,
+      "number": "#3604",
+      "customer": "HDFC Bank",
+      "product": "LISS4",
+      "price": 150,
+      "status": "Approved",
+      "date": "2022-06-20"
     }
 ],
   "recentactiviy": [
