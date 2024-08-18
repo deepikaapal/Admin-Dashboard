@@ -103,26 +103,29 @@
     {
       "_id": 1,
       "number": "#2457",
-      "customer": " Deepika",
+      "customer": "Deepika",
       "product": "LISS4",
       "price": 64,
-      "status": "Approved"
+      "status": "Approved",
+      "date": "2024-08-18"
     },
     {
       "_id": 2,
       "number": "#2147",
-      "customer": " Deepika",
+      "customer": "Deepika",
       "product": "LISS4",
       "price": 47,
-      "status": "Pending"
+      "status": "Pending",
+      "date": "2024-08-17"
     },
     {
       "_id": 3,
       "number": "#2049",
-      "customer": " Deepika",
+      "customer": "Deepika",
       "product": "LISS4",
       "price": 147,
-      "status": "Approved"
+      "status": "Approved",
+      "date": "2024-08-16"
     },
     {
       "_id": 4,
@@ -130,7 +133,8 @@
       "customer": "Deepika",
       "product": "LISS4",
       "price": 72,
-      "status": "Rejected"
+      "status": "Rejected",
+      "date": "2024-08-15"
     },
     {
       "_id": 5,
@@ -138,9 +142,10 @@
       "customer": "Deepika",
       "product": "LISS4",
       "price": 135,
-      "status": "Approved"
+      "status": "Approved",
+      "date": "2024-08-14"
     }
-  ],
+],
   "recentactiviy": [
     {
       "_id": 1,
