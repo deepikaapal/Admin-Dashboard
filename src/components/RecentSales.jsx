@@ -4,6 +4,7 @@ import RecentSalesTable from './RecentSalesTable';
 
 function RecentSales({ dateRange }) {
     const [items, setItems] = useState([]);
+    const [showAll, setShowAll] = useState(false);
 
     const fetchData = () => {
         fetch('http://localhost:4000/recentsales')
@@ -27,13 +28,20 @@ function RecentSales({ dateRange }) {
         fetchData();
     }, [dateRange]);
 
+    const displayedItems = showAll ? items : items.slice(0, 5);
+
     return (
         <div className="card recent-sales overflow-auto">
             <div className="card-body">
-                <h5 className="card-title">
-                    Recent Sales
-                </h5>
-                <RecentSalesTable items={items}/>
+                <h5 className="card-title">Recent Sales</h5>
+                <RecentSalesTable items={displayedItems} />
+                {items.length > 5 && !showAll && (
+                    <div className="see-all" style={{ textAlign: 'right', marginTop: '10px' }}>
+                        <button className="btn btn-link" onClick={() => setShowAll(true)}>
+                            See All
+                        </button>
+                    </div>
+                )}
             </div>
         </div>
     );
