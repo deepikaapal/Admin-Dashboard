@@ -17,7 +17,8 @@ function Dashboard() {
     const [orderDetails, setOrderDetails] = useState([]);
     const [approvedcount, setApprovedcount] = useState(0);
     const [totalAmount, setTotalAmount] = useState(0); 
-    const [selectedDateRange, setSelectedDateRange] = useState(''); // New state for date range
+    const [selectedDateRange, setSelectedDateRange] = useState('');
+    const [showFreePaidCards, setShowFreePaidCards] = useState(false); // State for showing Free and Paid cards
 
     const orderData = async() => {
         try {
@@ -91,6 +92,10 @@ function Dashboard() {
         setFilteredDetails(filteredOrders);
     };
 
+    const handleSatelliteClick = () => {
+        setShowFreePaidCards(prevState => !prevState); // Toggle the visibility of Free and Paid cards
+    };
+
     return (
         <section className="dashboard section">
             <div className="row">
@@ -105,9 +110,15 @@ function Dashboard() {
                 </div>
                 <div className="col-lg-8">
                     <div className="row">
-                        <Card name={"Sales"} totalsales={approvedcount}/>
-                        <Card name={"Revenue"} totalsales={(new Intl.NumberFormat('en-IN').format(totalAmount.toFixed(2)))}/>
-                        <Card name={"Customers"} totalsales={filteredDetails.length}/>
+                        <Card name={"Satellite"} totalsales={approvedcount} onClick={handleSatelliteClick}/> {/* Add click handler */}
+                        {showFreePaidCards && (
+                            <div className="subpoints">
+                                <Card name={"Free"} totalsales={approvedcount / 2}/>
+                                <Card name={"Paid"} totalsales={approvedcount / 2}/>
+                            </div>
+                        )}
+                        <Card name={"Vector"} totalsales={(new Intl.NumberFormat('en-IN').format(totalAmount.toFixed(2)))}/>
+                        <Card name={"Online"} totalsales={filteredDetails.length}/>
                         
                         <div className="col-12">
                             <Reports/>
