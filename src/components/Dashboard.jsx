@@ -19,7 +19,6 @@ function Dashboard() {
     const [totalAmount, setTotalAmount] = useState(0); 
     const [selectedDateRange, setSelectedDateRange] = useState('');
     const [showFreePaidCards, setShowFreePaidCards] = useState(false); // State for showing Free and Paid cards
-    
 
     const orderData = async() => {
         try {
@@ -123,6 +122,7 @@ function Dashboard() {
                                 <Card name={"Paid"} totalsales={approvedcount / 2}/>
                             </div>
 
+                            
                         )}
                         <Card name={"Vector"} totalsales={(new Intl.NumberFormat('en-IN').format(totalAmount.toFixed(2)))}/>
                         <Card name={"Online"} totalsales={filteredDetails.length}/>
