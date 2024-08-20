@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './card.css';
 import CardFilter from './CardFilter';
 
-function Card({ name, totalsales, onClick }) { // Add onClick prop
+function Card({ name, totalsales, onClick, highlight }) { // Add onClick prop
 
     const [filter, setFilter] = useState('Today');
     const handleFilterChange = filter => {
@@ -10,8 +10,8 @@ function Card({ name, totalsales, onClick }) { // Add onClick prop
     }
 
     return(
-        <div className="col-xxl-4 col-md-6">
-            <div className="card info-card sales-card" onClick={onClick}> {/* Add onClick to card div */}
+        <div className={`col-xxl-4 col-md-6 ${highlight ? 'highlight-card' : ''}`} onClick={onClick}>
+            <div className="card info-card sales-card" > 
                 <div className="card-body">
                     <h5 className="card-title">
                         {name} 
