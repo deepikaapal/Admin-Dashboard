@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import './dateTimeDisplay.css'
 
 function DateTimeDisplay() {
     const [currentDateTime, setCurrentDateTime] = useState(new Date());

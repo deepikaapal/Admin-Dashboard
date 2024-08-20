@@ -1,0 +1,25 @@
+.dashboard .filter-container {
+    margin-bottom: 20px; /* Adjust the spacing between the filter dropdown and the date-time display */
+}
+
+.dashboard .date-time-display {
+    display: flex;
+    /* justify-content: space-between; */
+    align-items: flex-end;
+    background-color: #f6f6fe; 
+    margin-left: 1296px;
+    padding: 10px 0px; 
+    font-size: 18px; 
+    color: #333; 
+    width: 100%;
+    box-sizing: border-box; 
+}
+
+.dashboard .date-time-display .date, 
+.dashboard .date-time-display .time {
+    font-weight: 500;
+}
+
+.dashboard .date-time-display .time {
+    margin-left: 15px; 
+}
