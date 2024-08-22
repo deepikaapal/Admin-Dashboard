@@ -21,6 +21,8 @@ function Dashboard() {
     const [showFreePaidCards, setShowFreePaidCards] = useState(false);
     const [showFreeSubpoints, setShowFreeSubpoints] = useState(false);
     const [showPaidSubpoints, setShowPaidSubpoints] = useState(false);
+    const [showVectorSubpoints, setShowVectorSubpoints] = useState(false);
+    const [showOnlineSubpoints, setShowOnlineSubpoints] = useState(false);
     const [selectedSubpoint, setSelectedSubpoint] = useState('');
 
 
@@ -112,6 +114,20 @@ function Dashboard() {
         setShowFreeSubpoints(false);
     };
 
+    const handleVectorClick = () => {
+        setShowVectorSubpoints(prevState => !prevState);
+        setShowFreeSubpoints(false);
+        setShowPaidSubpoints(false);
+        setShowOnlineSubpoints(false);
+    };
+
+    const handleOnlineClick = () => {
+        setShowOnlineSubpoints(prevState => !prevState);
+        setShowFreeSubpoints(false);
+        setShowPaidSubpoints(false);
+        setShowVectorSubpoints(false);
+    };
+
     const handleSubpointClick = (subpointName) => {
         setSelectedSubpoint(subpointName);
     };
@@ -197,13 +213,60 @@ function Dashboard() {
                         )}
                         <Card 
                             name={"Vector"} 
-                            totalsales={(new Intl.NumberFormat('en-IN').format(totalAmount.toFixed(2)))}
+                            totalsales={approvedcount / 4}
+                            onClick={() => handleSubpointClick('LISS4-Paid')}
+                            highlight={selectedSubpoint === 'LISS4-Paid'}
                         />
+                        {showVectorSubpoints && (
+                            <div className="subpoints-details">
+                                <Card 
+                                    name={"AWIFS-Vector"} 
+                                    totalsales={approvedcount / 4}
+                                    onClick={() => handleSubpointClick('AWIFS-Vector')}
+                                    highlight={selectedSubpoint === 'AWIFS-Vector'}
+                                />
+                                <Card 
+                                    name={"Sentinel-Vector"} 
+                                    totalsales={approvedcount / 4}
+                                    onClick={() => handleSubpointClick('Sentinel-Vector')}
+                                    highlight={selectedSubpoint === 'Sentinel-Vector'}
+                                />
+                                <Card 
+                                    name={"LISS4-Vector"} 
+                                    totalsales={approvedcount / 4}
+                                    onClick={() => handleSubpointClick('LISS4-Vector')}
+                                    highlight={selectedSubpoint === 'LISS4-Vector'}
+                                />
+                            </div>
+                        )}
                         <Card 
                             name={"Online"} 
-                            totalsales={filteredDetails.length}
+                            totalsales={approvedcount / 4}
+                            onClick={() => handleSubpointClick('LISS4-Vector')}
+                            highlight={selectedSubpoint === 'LISS4-Vector'}
                         />
-                        
+                        {showOnlineSubpoints && (
+                            <div className="subpoints-details">
+                                <Card 
+                                    name={"AWIFS-Online"} 
+                                    totalsales={approvedcount / 4}
+                                    onClick={() => handleSubpointClick('AWIFS-Online')}
+                                    highlight={selectedSubpoint === 'AWIFS-Online'}
+                                />
+                                <Card 
+                                    name={"Sentinel-Online"} 
+                                    totalsales={approvedcount / 4}
+                                    onClick={() => handleSubpointClick('Sentinel-Online')}
+                                    highlight={selectedSubpoint === 'Sentinel-Online'}
+                                />
+                                <Card 
+                                    name={"LISS4-Online"} 
+                                    totalsales={approvedcount / 4}
+                                    onClick={() => handleSubpointClick('LISS4-Online')}
+                                    highlight={selectedSubpoint === 'LISS4-Online'}
+                                />
+                            </div>
+                        )}
                         <div className="col-12">
                             <Reports/>
                         </div>
