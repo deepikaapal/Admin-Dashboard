@@ -21,6 +21,8 @@ function Dashboard() {
     const [showFreePaidCards, setShowFreePaidCards] = useState(false);
     const [showFreeSubpoints, setShowFreeSubpoints] = useState(false);
     const [showPaidSubpoints, setShowPaidSubpoints] = useState(false);
+    const [selectedSubpoint, setSelectedSubpoint] = useState('');
+
 
     const orderData = async () => {
         try {
@@ -110,6 +112,10 @@ function Dashboard() {
         setShowFreeSubpoints(false);
     };
 
+    const handleSubpointClick = (subpointName) => {
+        setSelectedSubpoint(subpointName);
+    };
+
     return (
         <section className="dashboard section">
             <div className="row">
@@ -148,16 +154,45 @@ function Dashboard() {
                         )}
                         {showFreeSubpoints && (
                             <div className="subpoints-details">
-                                <Card name={"AWIFS-Free"} totalsales={approvedcount / 4}/>
-                                <Card name={"Sentinel-Free"} totalsales={approvedcount / 4}/>
-                                <Card name={"LISS4-Free"} totalsales={approvedcount / 4}/>
+                                <Card 
+                                name={"AWIFS-Free"} 
+                                totalsales={approvedcount / 4}
+                                onClick={() => handleSubpointClick('AWIFS')}
+                                highlight={selectedSubpoint === 'AWIFS'}
+                                />
+                                <Card 
+                                name={"Sentinel-Free"} 
+                                totalsales={approvedcount / 4}
+                                onClick={() => handleSubpointClick('Sentinel')}
+                                highlight={selectedSubpoint === 'Sentinel'}
+                                />
+                                <Card 
+                                name={"LISS4-Free"} 
+                                totalsales={approvedcount / 4}
+                                onClick={() => handleSubpointClick('LISS4')}
+                                highlight={selectedSubpoint === 'LISS4'}
+                                />
                             </div>
                         )}
                         {showPaidSubpoints && (
                             <div className="subpoints-details d-flex">
-                                <Card name={"AWIFS-Paid"} totalsales={approvedcount / 4}/>
-                                <Card name={"Sentinel-Paid"} totalsales={approvedcount / 4}/>
-                                <Card name={"LISS4-Paid"} totalsales={approvedcount / 4}/>
+                                <Card 
+                                name={"AWIFS-Paid"} 
+                                totalsales={approvedcount / 4}
+                                onClick={() => handleSubpointClick('AWIFS')}
+                                highlight={selectedSubpoint === 'AWIFS'}
+                                />
+                                <Card 
+                                name={"Sentinel-Paid"} 
+                                totalsales={approvedcount / 4}
+                                onClick={() => handleSubpointClick('Sentinel')}
+                                highlight={selectedSubpoint === 'Sentinel'}/>
+                                <Card 
+                                name={"LISS4-Paid"} 
+                                totalsales={approvedcount / 4}
+                                onClick={() => handleSubpointClick('LISS4')}
+                                highlight={selectedSubpoint === 'LISS4'}
+                                />
                             </div>
                         )}
                         <Card 
