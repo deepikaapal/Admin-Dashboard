@@ -105,13 +105,19 @@ function Dashboard() {
     const handleFreeClick = () => {
         setShowFreeSubpoints(prevState => !prevState);
         setShowPaidSubpoints(false);
+        if (!showFreeSubpoints) {
+            setSelectedSubpoint(''); // Reset subpoint when switching to Free
+        }
     };
-
+    
     const handlePaidClick = () => {
         setShowPaidSubpoints(prevState => !prevState);
         setShowFreeSubpoints(false);
+        if (!showPaidSubpoints) {
+            setSelectedSubpoint(''); // Reset subpoint when switching to Paid
+        }
     };
-
+    
     const handleSubpointClick = (subpointName) => {
         setSelectedSubpoint(subpointName);
     };
