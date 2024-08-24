@@ -54,18 +54,18 @@
 
 .subpoints-details {
     display: flex;
-    gap: 10px; /* Space between the subpoint cards */
-    margin-top: 10px; /* Margin to separate from Free and Paid cards */
+    gap: 10px; 
+    margin-top: 10px; 
     padding-left: 53px;
     flex-wrap: nowrap; /* Prevent wrapping */
-    justify-content: flex-start; /* Align items to the start of the row */
+    justify-content: flex-start; 
     align-items: flex-start;
 }
 
 .subpoints-details .card {
-    width: 300px; /* Set the width directly */
-    flex: 0 0 auto; /* Ensure it doesn't grow or shrink */
-    height: 173px; /* Set a fixed height for each card */
+    width: 300px; 
+    flex: 0 0 auto;     
+    height: 173px; 
     display: flex;
     align-items: center; /* Center content vertically */
     justify-content: center; /* Center content horizontally */
