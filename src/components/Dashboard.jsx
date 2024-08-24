@@ -22,6 +22,14 @@ function Dashboard() {
     const [showFreeSubpoints, setShowFreeSubpoints] = useState(false);
     const [showPaidSubpoints, setShowPaidSubpoints] = useState(false);
     const [selectedSubpoint, setSelectedSubpoint] = useState('');
+    const [showVectorSubparts, setShowVectorSubparts] = useState(false);
+    const [showVectorFreeSubpoints, setShowVectorFreeSubpoints] = useState(false);
+    const [showVectorPaidSubpoints, setShowVectorPaidSubpoints] = useState(false);
+
+    const [showOnlineSubparts, setShowOnlineSubparts] = useState(false);
+    const [showOnlineFreeSubpoints, setShowOnlineFreeSubpoints] = useState(false);
+    const [showOnlinePaidSubpoints, setShowOnlinePaidSubpoints] = useState(false);
+
 
 
     const orderData = async () => {
@@ -122,6 +130,53 @@ function Dashboard() {
         setSelectedSubpoint(subpointName);
     };
 
+
+    // For Vector
+    const handleVectorClick = () => {
+        setShowVectorSubparts(prevState => !prevState);
+        setShowVectorFreeSubpoints(false);
+        setShowVectorPaidSubpoints(false);
+    };
+
+    const handleVectorFreeClick = () => {
+        setShowVectorFreeSubpoints(prevState => !prevState);
+        setShowVectorPaidSubpoints(false);
+        if (!showVectorFreeSubpoints) {
+            setSelectedSubpoint(''); // Reset subpoint when switching to Free
+        }
+    };
+
+    const handleVectorPaidClick = () => {
+        setShowVectorPaidSubpoints(prevState => !prevState);
+        setShowVectorFreeSubpoints(false);
+        if (!showVectorPaidSubpoints) {
+            setSelectedSubpoint(''); // Reset subpoint when switching to Paid
+        }
+    };
+
+    // For Online
+    const handleOnlineClick = () => {
+        setShowOnlineSubparts(prevState => !prevState);
+        setShowOnlineFreeSubpoints(false);
+        setShowOnlinePaidSubpoints(false);
+    };
+
+    const handleOnlineFreeClick = () => {
+        setShowOnlineFreeSubpoints(prevState => !prevState);
+        setShowOnlinePaidSubpoints(false);
+        if (!showOnlineFreeSubpoints) {
+            setSelectedSubpoint(''); // Reset subpoint when switching to Free
+        }
+    };
+
+    const handleOnlinePaidClick = () => {
+        setShowOnlinePaidSubpoints(prevState => !prevState);
+        setShowOnlineFreeSubpoints(false);
+        if (!showOnlinePaidSubpoints) {
+            setSelectedSubpoint(''); // Reset subpoint when switching to Paid
+        }
+    };
+
     return (
         <section className="dashboard section">
             <div className="row">
@@ -202,14 +257,139 @@ function Dashboard() {
                             </div>
                         )}
                         <Card 
-                            name={"Vector"} 
-                            totalsales={(new Intl.NumberFormat('en-IN').format(totalAmount.toFixed(2)))}
-                        />
-                        
-                        <Card 
-                            name={"Online"} 
-                            totalsales={filteredDetails.length}
-                        />
+    name={"Vector"} 
+    totalsales={(new Intl.NumberFormat('en-IN').format(totalAmount.toFixed(2)))} 
+    onClick={handleVectorClick}
+    highlight={showVectorSubparts}
+/>
+{showVectorSubparts && (
+    <div className="subpoints">
+        <Card 
+            name={"Free"} 
+            totalsales={approvedcount / 2}
+            onClick={handleVectorFreeClick}
+            highlight={showVectorFreeSubpoints}
+        />
+        <Card 
+            name={"Paid"} 
+            totalsales={approvedcount / 2}
+            onClick={handleVectorPaidClick}
+            highlight={showVectorPaidSubpoints}
+        />
+    </div>
+)}
+{showVectorFreeSubpoints && (
+    <div className="subpoints-details">
+        <Card 
+            name={"AWIFS-Free"} 
+            totalsales={approvedcount / 4}
+            onClick={() => handleSubpointClick('AWIFS')}
+            highlight={selectedSubpoint === 'AWIFS'}
+        />
+        <Card 
+            name={"Sentinel-Free"} 
+            totalsales={approvedcount / 4}
+            onClick={() => handleSubpointClick('Sentinel')}
+            highlight={selectedSubpoint === 'Sentinel'}
+        />
+        <Card 
+            name={"LISS4-Free"} 
+            totalsales={approvedcount / 4}
+            onClick={() => handleSubpointClick('LISS4')}
+            highlight={selectedSubpoint === 'LISS4'}
+        />
+    </div>
+)}
+{showVectorPaidSubpoints && (
+    <div className="subpoints-details">
+        <Card 
+            name={"AWIFS-Paid"} 
+            totalsales={approvedcount / 4}
+            onClick={() => handleSubpointClick('AWIFS')}
+            highlight={selectedSubpoint === 'AWIFS'}
+        />
+        <Card 
+            name={"Sentinel-Paid"} 
+            totalsales={approvedcount / 4}
+            onClick={() => handleSubpointClick('Sentinel')}
+            highlight={selectedSubpoint === 'Sentinel'}
+        />
+        <Card 
+            name={"LISS4-Paid"} 
+            totalsales={approvedcount / 4}
+            onClick={() => handleSubpointClick('LISS4')}
+            highlight={selectedSubpoint === 'LISS4'}
+        />
+    </div>
+)}
+
+<Card 
+    name={"Online"} 
+    totalsales={filteredDetails.length} 
+    onClick={handleOnlineClick}
+    highlight={showOnlineSubparts}
+/>
+{showOnlineSubparts && (
+    <div className="subpoints">
+        <Card 
+            name={"Free"} 
+            totalsales={approvedcount / 2}
+            onClick={handleOnlineFreeClick}
+            highlight={showOnlineFreeSubpoints}
+        />
+        <Card 
+            name={"Paid"} 
+            totalsales={approvedcount / 2}
+            onClick={handleOnlinePaidClick}
+            highlight={showOnlinePaidSubpoints}
+        />
+    </div>
+)}
+{showOnlineFreeSubpoints && (
+    <div className="subpoints-details">
+        <Card 
+            name={"AWIFS-Free"} 
+            totalsales={approvedcount / 4}
+            onClick={() => handleSubpointClick('AWIFS')}
+            highlight={selectedSubpoint === 'AWIFS'}
+        />
+        <Card 
+            name={"Sentinel-Free"} 
+            totalsales={approvedcount / 4}
+            onClick={() => handleSubpointClick('Sentinel')}
+            highlight={selectedSubpoint === 'Sentinel'}
+        />
+        <Card 
+            name={"LISS4-Free"} 
+            totalsales={approvedcount / 4}
+            onClick={() => handleSubpointClick('LISS4')}
+            highlight={selectedSubpoint === 'LISS4'}
+        />
+    </div>
+)}
+{showOnlinePaidSubpoints && (
+    <div className="subpoints-details">
+        <Card 
+            name={"AWIFS-Paid"} 
+            totalsales={approvedcount / 4}
+            onClick={() => handleSubpointClick('AWIFS')}
+            highlight={selectedSubpoint === 'AWIFS'}
+        />
+        <Card 
+            name={"Sentinel-Paid"} 
+            totalsales={approvedcount / 4}
+            onClick={() => handleSubpointClick('Sentinel')}
+            highlight={selectedSubpoint === 'Sentinel'}
+        />
+        <Card 
+            name={"LISS4-Paid"} 
+            totalsales={approvedcount / 4}
+            onClick={() => handleSubpointClick('LISS4')}
+            highlight={selectedSubpoint === 'LISS4'}
+        />
+    </div>
+)}
+
                         
                         <div className="col-12">
                             <Reports/>
