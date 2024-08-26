@@ -114,7 +114,7 @@ function Dashboard() {
         setShowFreeSubpoints(prevState => !prevState);
         setShowPaidSubpoints(false);
         if (!showFreeSubpoints) {
-            setSelectedSubpoint(''); // Reset subpoint when switching to Free
+            setSelectedSubpoint(''); 
         }
     };
     
@@ -122,7 +122,7 @@ function Dashboard() {
         setShowPaidSubpoints(prevState => !prevState);
         setShowFreeSubpoints(false);
         if (!showPaidSubpoints) {
-            setSelectedSubpoint(''); // Reset subpoint when switching to Paid
+            setSelectedSubpoint(''); 
         }
     };
     
@@ -142,7 +142,7 @@ function Dashboard() {
         setShowVectorFreeSubpoints(prevState => !prevState);
         setShowVectorPaidSubpoints(false);
         if (!showVectorFreeSubpoints) {
-            setSelectedSubpoint(''); // Reset subpoint when switching to Free
+            setSelectedSubpoint(''); 
         }
     };
 
@@ -150,7 +150,7 @@ function Dashboard() {
         setShowVectorPaidSubpoints(prevState => !prevState);
         setShowVectorFreeSubpoints(false);
         if (!showVectorPaidSubpoints) {
-            setSelectedSubpoint(''); // Reset subpoint when switching to Paid
+            setSelectedSubpoint(''); 
         }
     };
 
@@ -165,7 +165,7 @@ function Dashboard() {
         setShowOnlineFreeSubpoints(prevState => !prevState);
         setShowOnlinePaidSubpoints(false);
         if (!showOnlineFreeSubpoints) {
-            setSelectedSubpoint(''); // Reset subpoint when switching to Free
+            setSelectedSubpoint(''); 
         }
     };
 
@@ -173,7 +173,7 @@ function Dashboard() {
         setShowOnlinePaidSubpoints(prevState => !prevState);
         setShowOnlineFreeSubpoints(false);
         if (!showOnlinePaidSubpoints) {
-            setSelectedSubpoint(''); // Reset subpoint when switching to Paid
+            setSelectedSubpoint(''); 
         }
     };
 
