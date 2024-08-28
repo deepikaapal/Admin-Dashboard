@@ -395,7 +395,7 @@ function Dashboard() {
                             <Reports/>
                         </div>
                         <div className="col-12">
-                            <RecentSales dateRange={selectedDateRange} /> {/* Pass selectedDateRange to RecentSales */}
+                            <RecentSales dateRange={selectedDateRange} /> 
                         </div>
                         <div className="col-12">
                             <TopSelling dateRange={selectedDateRange}/>
