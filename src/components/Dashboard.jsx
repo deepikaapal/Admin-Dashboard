@@ -417,42 +417,42 @@ export default Dashboard;
 
 
 
-{activeSubpart === 'Online-Free' && (
-    <div className="subpoints-details">
-        <Card 
-            name={"AWIFS-Free"} 
-            totalsales={approvedcount / 4}
-            highlight={false}
-        />
-        <Card 
-            name={"Sentinel-Free"} 
-            totalsales={approvedcount / 4}
-            highlight={false}
-        />
-        <Card 
-            name={"LISS4-Free"} 
-            totalsales={approvedcount / 4}
-            highlight={false}
-        />
-    </div>
-)}
-{activeSubpart === 'Online-Paid' && (
-    <div className="subpoints-details">
-        <Card 
-            name={"AWIFS-Paid"} 
-            totalsales={approvedcount / 4}
-            highlight={false}
-        />
-        <Card 
-            name={"Sentinel-Paid"} 
-            totalsales={approvedcount / 4}
-            highlight={false}
-        />
-        <Card 
-            name={"LISS4-Paid"} 
-            totalsales={approvedcount / 4}
-            highlight={false}
-        />
-    </div>
-)}
+// {activeSubpart === 'Online-Free' && (
+//     <div className="subpoints-details">
+//         <Card 
+//             name={"AWIFS-Free"} 
+//             totalsales={approvedcount / 4}
+//             highlight={false}
+//         />
+//         <Card 
+//             name={"Sentinel-Free"} 
+//             totalsales={approvedcount / 4}
+//             highlight={false}
+//         />
+//         <Card 
+//             name={"LISS4-Free"} 
+//             totalsales={approvedcount / 4}
+//             highlight={false}
+//         />
+//     </div>
+// )}
+// {activeSubpart === 'Online-Paid' && (
+//     <div className="subpoints-details">
+//         <Card 
+//             name={"AWIFS-Paid"} 
+//             totalsales={approvedcount / 4}
+//             highlight={false}
+//         />
+//         <Card 
+//             name={"Sentinel-Paid"} 
+//             totalsales={approvedcount / 4}
+//             highlight={false}
+//         />
+//         <Card 
+//             name={"LISS4-Paid"} 
+//             totalsales={approvedcount / 4}
+//             highlight={false}
+//         />
+//     </div>
+// )}
 
